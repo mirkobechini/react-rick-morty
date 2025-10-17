@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react"
 import axios from "axios";
 import DefaultLayout from "./layouts/DefaultLayout";
-import HomePage from "./components/pages/HomePage";
+import HomePage from "./pages/HomePage";
 
 
 
