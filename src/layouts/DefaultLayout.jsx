@@ -2,10 +2,10 @@ import { Outlet } from "react-router-dom";
 import AppHeader from "../components/AppHeader";
 import AppFooter from "../components/AppFooter";
 
-export default function DefaultLayout({ fetchData }) {
+export default function DefaultLayout() {
     return (
         <>
-            <AppHeader fetchData={fetchData} />
+            <AppHeader />
             <Outlet />
             <AppFooter/>
         </>

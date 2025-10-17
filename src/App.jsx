@@ -3,40 +3,24 @@ import { useState } from "react"
 import axios from "axios";
 import DefaultLayout from "./layouts/DefaultLayout";
 import HomePage from "./pages/HomePage";
+import CharactersPage from "./pages/CharactersPage";
+import AboutPage from "./pages/AboutPage";
+import ContactsPage from "./pages/ContactsPage";
 
 
 
 function App() {
 
-
-  const [characters, setCharacters] = useState([])
-
-  function fetchData(e) {
-    console.log('fetch data');
-    //fetch data with axios
-    axios.get(`https://rickandmortyapi.com/api/character?page=${e.target.value}`)
-      .then(res => {
-        const { info, results } = res.data
-
-        setCharacters(results)
-
-      })
-      .catch(err => {
-        console.error(err.message);
-      }
-      )
-    //log fetched data
-  }
-
-
-
-
   return (
 
     <BrowserRouter>
       <Routes>
-        <Route element={<DefaultLayout  fetchData = {fetchData}/>}>
-          <Route index element={<HomePage fetchData = {fetchData} characters = {characters} setCharacters= {setCharacters}/>} />
+        <Route element={<DefaultLayout/>}>
+          <Route index element={<HomePage/>} />
+          <Route path="/characters" element={<CharactersPage/>} />
+          <Route path="/about" element={<AboutPage/>} />
+          <Route path="/contacts" element={<ContactsPage/>} />
+
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,4 +1,31 @@
-export default function HomePage({fetchData, characters, setCharacters}) {
+import axios from "axios"
+import { useEffect, useState } from "react";
+
+export default function HomePage() {
+
+    const [characters, setCharacters] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+
+    function fetchData(page) {
+        console.log('fetch data');
+        //fetch data with axios
+        axios.get(`https://rickandmortyapi.com/api/character?page=${page}`)
+            .then(res => {
+                const { info, results } = res.data
+
+                setCharacters(results)
+
+            })
+            .catch(err => {
+                console.error(err.message);
+            }
+            )
+        //log fetched data
+    }
+
+    useEffect(() => {
+        fetchData(currentPage)
+    }, [])
 
     return (
         <>
@@ -6,14 +33,14 @@ export default function HomePage({fetchData, characters, setCharacters}) {
                 <div className="p-5 mb-4 bg-light rounded-3">
                     <div className="p-5 mb-4 bg-light rounded-3">
                         <div className="container-fluid py-5">
-                            <h1 className="display-5 fw-bold">Rick and Morty characters</h1>
+                            <h1 className="display-5 fw-bold">WelcomeRick and Morty characters</h1>
                             <p className="col-md-8 fs-4">
                                 Using a series of utilities, you can create this jumbotron, just
                                 like the one in previous versions of Bootstrap. Check out the
                                 examples below for how you can remix and restyle it to your liking.
                             </p>
-                            <button className="btn btn-primary btn-lg" type="button">
-                                Example button
+                            <button className="btn btn-primary btn-lg" type="button" onClick={fetchData}>
+                                Explore characters
                             </button>
                         </div>
                     </div>
