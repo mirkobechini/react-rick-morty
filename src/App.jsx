@@ -20,7 +20,7 @@ function App() {
         <Route element={<DefaultLayout menu = {menu} />}>
           <Route index element={<HomePage/>} />
           <Route path="/characters" element={<CharactersPage/>} />
-          <Route path="/characters/:id" element={<CharacterPage/>} />
+          <Route path="/character/:id" element={<CharacterPage/>} />
           <Route path="/about" element={<AboutPage/>} />
           <Route path="/contacts" element={<ContactsPage/>} />
 

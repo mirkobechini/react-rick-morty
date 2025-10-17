@@ -1,9 +1,10 @@
 import axios from "axios"
+import { Link } from "react-router-dom"
 import { useEffect, useState } from "react";
 
 
-export default function CharactersPage( ) {
-    
+export default function CharactersPage() {
+
     const [characters, setCharacters] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -78,7 +79,9 @@ export default function CharactersPage( ) {
 
                                 <div className="col-12 col-sm-6 col-md-4 mb-4" key={character.id}>
                                     <div className={`card h-100  position-relative ${character.status === "Alive" ? "border-success bg-success-subtle" : "border-danger bg-danger-subtle"}`}>
-                                        <img className='img-fluid' src={character.image} alt="" />
+                                        <Link to={`/character/${character.id}`} >
+                                            <img className='img-fluid' src={character.image} alt="" />
+                                        </Link>
                                         <div className="card-body">
                                             <h3>{character.name}</h3>
                                             <span>Origin: {character.origin.name} </span>
