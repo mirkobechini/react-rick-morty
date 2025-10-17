@@ -11,7 +11,9 @@ export default function CharacterPage() {
 
 
     useEffect(() => {
-        fetchData(endpoint)
+        setTimeout(()=>{
+            fetchData(endpoint)
+        }, 2000)
     }, [])
 
 
