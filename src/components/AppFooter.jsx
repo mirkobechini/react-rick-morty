@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom"
+
 export default function footer() {
     return (
         <footer className="bg-dark py-5 text-white">
@@ -10,28 +12,20 @@ export default function footer() {
                     <div className="col">
                         <h3>Rick and Morty</h3>
                         <ul className="list-unstyled">
-                            <li>
-                                <a href="">Home</a>
-                            </li>
-                            <li>
-                                <a href=""></a>
-                            </li>
-                            <li>
-                                <a href=""></a>
-                            </li>
-                            <li>
-                                <a href=""></a>
-                            </li>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/characters">Characters</Link></li>
+                            <li><Link to="/about">About</Link></li>
+                            <li><Link to="/contacts">Contacts</Link></li>
                         </ul>
                     </div>
                     <div className="col">
                         <h3>Rick and Morty</h3>
                         <ul className="list-unstyled">
                             <li>
-                                <a href="">Privacy</a>
+                                <Link to="">Privacy</Link>
                             </li>
                             <li>
-                                <a href="">T&C</a>
+                                <Link to="">T&C</Link>
                             </li>
                         </ul>
                     </div>
