@@ -1,12 +1,13 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import CharacterCard from "../components/CharacterCard"
 
 import { Cardio } from 'ldrs/react'
 
 export default function CharacterPage() {
     const { id } = useParams()
+    const navigate = useNavigate()
     const [character, setCharacter] = useState(null)
 
     const endpoint = `https://rickandmortyapi.com/api/character/${id}`
@@ -15,7 +16,7 @@ export default function CharacterPage() {
     useEffect(() => {
         setTimeout(() => {
             fetchData(endpoint)
-        }, 4000)
+        }, 2000)
     }, [])
 
 
@@ -27,6 +28,7 @@ export default function CharacterPage() {
             })
             .catch(err => {
                 console.error(err);
+                navigate("/characters")
             })
     }
 
