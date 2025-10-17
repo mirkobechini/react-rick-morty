@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import CharacterCard from "../components/CharacterCard"
 
+import { Cardio } from 'ldrs/react'
+
 export default function CharacterPage() {
     const { id } = useParams()
     const [character, setCharacter] = useState(null)
@@ -11,9 +13,9 @@ export default function CharacterPage() {
 
 
     useEffect(() => {
-        setTimeout(()=>{
+        setTimeout(() => {
             fetchData(endpoint)
-        }, 2000)
+        }, 4000)
     }, [])
 
 
@@ -42,7 +44,19 @@ export default function CharacterPage() {
 
             </div>
 
-            {character != null ? <CharacterCard character={character} /> : <div> loading...</div>}
+            {character != null ?
+                <CharacterCard character={character} />
+                :
+                <div className="vh-100 text-center">
+                    <Cardio
+                        size="50"
+                        stroke="4"
+                        Speed="2"
+                        color="black"
+                    />
+                    <div>Loading...</div>
+                </div>
+            }
         </div>
     )
 }
