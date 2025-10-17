@@ -1,2 +1,6 @@
 @import url('bootstrap');
 @import url('bootstrap-icons');
+
+.characterCard{
+    margin-top: -5rem
+}
