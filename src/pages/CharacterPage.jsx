@@ -17,7 +17,7 @@ export default function CharacterPage() {
         setTimeout(() => {
             fetchData(endpoint)
         }, 2000)
-    }, [])
+    }, [id])
 
 
     function fetchData(endpoint) {
@@ -28,7 +28,7 @@ export default function CharacterPage() {
             })
             .catch(err => {
                 console.error(err);
-                navigate("/characters")
+                navigate(-1)
             })
     }
 
